@@ -1,0 +1,31 @@
+int ledPinR = 12; // choose the pin for the LED
+int ledPinG = 13; // choose the pin for the LED
+int inputPin1 = 2; // button 1
+int inputPin2 = 3; // button 2
+int inputPin3 = 4; // button 1
+int inputPin4 = 5; // button 2
+ 
+void setup() {
+  pinMode(ledPinR, OUTPUT); // declare LED as output
+   pinMode(ledPinG, OUTPUT); // declare LED as output
+  pinMode(inputPin1, INPUT); // make button 1 an input
+  pinMode(inputPin2, INPUT); // make button 2 an input
+   pinMode(inputPin3, INPUT); // make button 1 an input
+  pinMode(inputPin4, INPUT); // make button 2 an input
+}
+ 
+void loop(){
+
+  if ((digitalRead(inputPin1) == HIGH) && (digitalRead(inputPin2) == LOW) && (digitalRead(inputPin3) == LOW) && (digitalRead(inputPin4) == HIGH)){
+    digitalWrite(ledPinG, HIGH); // turn LED OFF
+    digitalWrite(ledPinR, LOW);
+  } 
+ else if ((digitalRead(inputPin1) == HIGH) && (digitalRead(inputPin2) == HIGH) && (digitalRead(inputPin3) == HIGH) && (digitalRead(inputPin4) == HIGH)){
+ digitalWrite(ledPinR, LOW); // turn LED ON
+    digitalWrite(ledPinG, LOW); // turn LED OFF
+  }
+  else {
+    digitalWrite(ledPinR, HIGH); // turn LED ON
+    digitalWrite(ledPinG, LOW); // turn LED OFF
+    }
+}
